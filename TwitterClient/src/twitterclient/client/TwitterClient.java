@@ -16,6 +16,7 @@ import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.FlexTable;
 import com.google.gwt.user.client.ui.HorizontalPanel;
 import com.google.gwt.user.client.ui.Label;
+import com.google.gwt.user.client.ui.PasswordTextBox;
 import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.VerticalPanel;
@@ -26,16 +27,21 @@ import com.google.gwt.user.client.ui.VerticalPanel;
 public class TwitterClient implements EntryPoint {
 
 	private static final int REFRESH_INTERVAL = 5000; // ms
+
 	private VerticalPanel mainPanel = new VerticalPanel();
+
+	private TextBox idTextBox = new TextBox();
+	private TextBox passwordTextBox = new PasswordTextBox();
+
 	private FlexTable statusListFlexTable = new FlexTable();
 	private HorizontalPanel sendPanel = new HorizontalPanel();
 	private TextBox newStatusTextBox = new TextBox();
 	private Button sendButton = new Button("send");
 	private Label lastUpdatedLabel = new Label();
-	// private ArrayList<String> stocks = new ArrayList<String>();
+	private Label errorMsgLabel = new Label();
+
 	private StatusListServiceAsync statusListSvc = GWT
 			.create(StatusListService.class);
-	private Label errorMsgLabel = new Label();
 
 	public void onModuleLoad() {
 		loadTwitterClient();
@@ -59,7 +65,10 @@ public class TwitterClient implements EntryPoint {
 		errorMsgLabel.setStyleName("errorMessage");
 		errorMsgLabel.setVisible(false);
 
-		// mainPanel.add(errorMsgLabel);
+		mainPanel.add(idTextBox);
+		mainPanel.add(passwordTextBox);
+
+		mainPanel.add(errorMsgLabel);
 		mainPanel.add(statusListFlexTable);
 		mainPanel.add(sendPanel);
 		mainPanel.add(lastUpdatedLabel);
@@ -113,8 +122,8 @@ public class TwitterClient implements EntryPoint {
 			}
 		};
 
-		String id = "joutanshio";
-		String password = "";
+		String id = idTextBox.getText();
+		String password = passwordTextBox.getText();
 		statusListSvc.getStatusList(id, password, callback);
 	}
 
