@@ -26,12 +26,14 @@ import com.google.gwt.user.client.ui.VerticalPanel;
  */
 public class TwitterClient implements EntryPoint {
 
-	private static final int REFRESH_INTERVAL = 5000; // ms
+	private static final int REFRESH_INTERVAL = 30000; // ms
 
 	private VerticalPanel mainPanel = new VerticalPanel();
 
 	private TextBox idTextBox = new TextBox();
 	private TextBox passwordTextBox = new PasswordTextBox();
+	private Button loginButton = new Button("login");
+	private Button logoutButton = new Button("logout");
 
 	private FlexTable statusListFlexTable = new FlexTable();
 	private HorizontalPanel sendPanel = new HorizontalPanel();
@@ -39,6 +41,13 @@ public class TwitterClient implements EntryPoint {
 	private Button sendButton = new Button("send");
 	private Label lastUpdatedLabel = new Label();
 	private Label errorMsgLabel = new Label();
+
+	private Timer refreshTimer = new Timer() {
+		@Override
+		public void run() {
+			refreshStatusList();
+		}
+	};
 
 	private StatusListServiceAsync statusListSvc = GWT
 			.create(StatusListService.class);
@@ -48,6 +57,8 @@ public class TwitterClient implements EntryPoint {
 	}
 
 	private void loadTwitterClient() {
+		logoutButton.setVisible(false);
+
 		// Create table for stock data.
 		statusListFlexTable.setText(0, 0, "name");
 		statusListFlexTable.setText(0, 1, "status");
@@ -55,11 +66,15 @@ public class TwitterClient implements EntryPoint {
 		statusListFlexTable.setCellPadding(6);
 		statusListFlexTable.getRowFormatter().addStyleName(0, "listHeader");
 		statusListFlexTable.addStyleName("list");
+		statusListFlexTable.setVisible(false);
 
 		// Assemble Add Stock panel.
 		sendPanel.add(newStatusTextBox);
 		sendPanel.add(sendButton);
 		sendPanel.addStyleName("sendPanel");
+		sendPanel.setVisible(false);
+
+		lastUpdatedLabel.setVisible(false);
 
 		// Assemble Main panel.
 		errorMsgLabel.setStyleName("errorMessage");
@@ -67,6 +82,8 @@ public class TwitterClient implements EntryPoint {
 
 		mainPanel.add(idTextBox);
 		mainPanel.add(passwordTextBox);
+		mainPanel.add(loginButton);
+		mainPanel.add(logoutButton);
 
 		mainPanel.add(errorMsgLabel);
 		mainPanel.add(statusListFlexTable);
@@ -79,16 +96,21 @@ public class TwitterClient implements EntryPoint {
 		// Move cursor focus to the input box.
 		newStatusTextBox.setFocus(true);
 
-		// Setup timer to refresh list automatically.
-		Timer refreshTimer = new Timer() {
-			@Override
-			public void run() {
-				refreshStatusList();
+		loginButton.addClickHandler(new ClickHandler() {
+			public void onClick(ClickEvent event) {
+				login();
 			}
-		};
-		refreshTimer.scheduleRepeating(REFRESH_INTERVAL);
 
-		// Listen for mouse events on the Add button.
+		});
+
+		logoutButton.addClickHandler(new ClickHandler() {
+			public void onClick(ClickEvent event) {
+				logout();
+			}
+
+		});
+
+		// Listen for mouse events on the Send button.
 		sendButton.addClickHandler(new ClickHandler() {
 			public void onClick(ClickEvent event) {
 				sendStatus();
@@ -104,6 +126,34 @@ public class TwitterClient implements EntryPoint {
 				}
 			}
 		});
+	}
+
+	private void login() {
+		idTextBox.setReadOnly(true);
+		passwordTextBox.setVisible(false);
+		loginButton.setVisible(false);
+		logoutButton.setVisible(true);
+
+		statusListFlexTable.setVisible(true);
+		sendPanel.setVisible(true);
+		lastUpdatedLabel.setVisible(true);
+
+		refreshStatusList();
+
+		refreshTimer.scheduleRepeating(REFRESH_INTERVAL);
+	}
+
+	private void logout() {
+		idTextBox.setReadOnly(false);
+		passwordTextBox.setVisible(true);
+		loginButton.setVisible(true);
+		logoutButton.setVisible(false);
+
+		statusListFlexTable.setVisible(false);
+		sendPanel.setVisible(false);
+		lastUpdatedLabel.setVisible(false);
+
+		refreshTimer.cancel();
 	}
 
 	private void sendStatus() {
