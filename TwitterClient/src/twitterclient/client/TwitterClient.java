@@ -69,6 +69,9 @@ public class TwitterClient implements EntryPoint {
 		statusListFlexTable.setVisible(false);
 
 		// Assemble Add Stock panel.
+		newStatusTextBox.setWidth("500px");
+		newStatusTextBox.setMaxLength(140);
+
 		sendPanel.add(newStatusTextBox);
 		sendPanel.add(sendButton);
 		sendPanel.addStyleName("sendPanel");
