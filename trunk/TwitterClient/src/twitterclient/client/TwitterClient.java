@@ -157,6 +157,23 @@ public class TwitterClient implements EntryPoint {
 	}
 
 	private void sendStatus() {
+		AsyncCallback<String> callback = new AsyncCallback<String>() {
+			public void onFailure(Throwable caught) {
+				String details = caught.getMessage();
+				errorMsgLabel.setText("Error: " + details);
+				errorMsgLabel.setVisible(true);
+			}
+
+			public void onSuccess(String result) {
+				newStatusTextBox.setText("");
+				refreshStatusList();
+			}
+		};
+
+		String id = idTextBox.getText();
+		String password = passwordTextBox.getText();
+		String status = newStatusTextBox.getText();
+		statusListSvc.sendStatus(id, password, status, callback);
 	}
 
 	private void refreshStatusList() {
