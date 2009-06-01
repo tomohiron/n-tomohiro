@@ -30,7 +30,7 @@ public class StatusListServiceImpl extends RemoteServiceServlet implements
 
 		for (int i = 0; i < size; ++i) {
 			Status status = statuses.get(i);
-			statusList[i] = new TwitterStatus(status.getUser().getName(),
+			statusList[i] = new TwitterStatus(status.getUser().getScreenName(),
 					status.getText());
 		}
 
