@@ -7,4 +7,7 @@ public interface StatusListServiceAsync {
 	void getStatusList(String id, String password,
 			AsyncCallback<TwitterStatus[]> callback);
 
+	void sendStatus(String id, String password, String status,
+			AsyncCallback<String> callback);
+
 }

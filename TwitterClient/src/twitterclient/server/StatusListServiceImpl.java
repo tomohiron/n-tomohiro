@@ -36,4 +36,20 @@ public class StatusListServiceImpl extends RemoteServiceServlet implements
 
 		return statusList;
 	}
+
+	@Override
+	public String sendStatus(String id, String password, String status)
+			throws Exception {
+
+		Twitter twitter = new Twitter(id, password);
+		Status result = null;
+		try {
+			result = twitter.updateStatus(status);
+		} catch (TwitterException e) {
+			throw new Exception(e.getMessage(), e);
+		}
+
+		return result.getText();
+	}
+
 }
