@@ -14,6 +14,7 @@ import com.google.gwt.user.client.Timer;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.FlexTable;
+import com.google.gwt.user.client.ui.Grid;
 import com.google.gwt.user.client.ui.HorizontalPanel;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.PasswordTextBox;
@@ -30,12 +31,8 @@ public class TwitterClient implements EntryPoint {
 
 	private VerticalPanel mainPanel = new VerticalPanel();
 
-	private HorizontalPanel idPanel = new HorizontalPanel();
-	private Label idLabel = new Label("id");
+	private Grid idGrid = new Grid(2, 2);
 	private TextBox idTextBox = new TextBox();
-
-	private HorizontalPanel passwordPanel = new HorizontalPanel();
-	private Label passwordLabel = new Label("password");
 	private TextBox passwordTextBox = new PasswordTextBox();
 
 	private Button loginButton = new Button("login");
@@ -76,11 +73,10 @@ public class TwitterClient implements EntryPoint {
 		statusListFlexTable.addStyleName("list");
 		statusListFlexTable.setVisible(false);
 
-		idPanel.add(idLabel);
-		idPanel.add(idTextBox);
-
-		passwordPanel.add(passwordLabel);
-		passwordPanel.add(passwordTextBox);
+		idGrid.setText(0, 0, "id");
+		idGrid.setWidget(0, 1, idTextBox);
+		idGrid.setText(1, 0, "password");
+		idGrid.setWidget(1, 1, passwordTextBox);
 
 		// Assemble Add Stock panel.
 		newStatusTextBox.setWidth("500px");
@@ -97,8 +93,7 @@ public class TwitterClient implements EntryPoint {
 		errorMsgLabel.setStyleName("errorMessage");
 		errorMsgLabel.setVisible(false);
 
-		mainPanel.add(idPanel);
-		mainPanel.add(passwordPanel);
+		mainPanel.add(idGrid);
 		mainPanel.add(loginButton);
 		mainPanel.add(logoutButton);
 
@@ -147,7 +142,7 @@ public class TwitterClient implements EntryPoint {
 
 	private void login() {
 		idTextBox.setReadOnly(true);
-		passwordTextBox.setVisible(false);
+		passwordTextBox.setReadOnly(true);
 		loginButton.setVisible(false);
 		logoutButton.setVisible(true);
 
@@ -162,7 +157,7 @@ public class TwitterClient implements EntryPoint {
 
 	private void logout() {
 		idTextBox.setReadOnly(false);
-		passwordTextBox.setVisible(true);
+		passwordTextBox.setReadOnly(false);
 		loginButton.setVisible(true);
 		logoutButton.setVisible(false);
 
