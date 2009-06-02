@@ -30,15 +30,23 @@ public class TwitterClient implements EntryPoint {
 
 	private VerticalPanel mainPanel = new VerticalPanel();
 
+	private HorizontalPanel idPanel = new HorizontalPanel();
+	private Label idLabel = new Label("id");
 	private TextBox idTextBox = new TextBox();
+
+	private HorizontalPanel passwordPanel = new HorizontalPanel();
+	private Label passwordLabel = new Label("password");
 	private TextBox passwordTextBox = new PasswordTextBox();
+
 	private Button loginButton = new Button("login");
 	private Button logoutButton = new Button("logout");
 
 	private FlexTable statusListFlexTable = new FlexTable();
+
 	private HorizontalPanel sendPanel = new HorizontalPanel();
 	private TextBox newStatusTextBox = new TextBox();
 	private Button sendButton = new Button("send");
+
 	private Label lastUpdatedLabel = new Label();
 	private Label errorMsgLabel = new Label();
 
@@ -68,6 +76,12 @@ public class TwitterClient implements EntryPoint {
 		statusListFlexTable.addStyleName("list");
 		statusListFlexTable.setVisible(false);
 
+		idPanel.add(idLabel);
+		idPanel.add(idTextBox);
+
+		passwordPanel.add(passwordLabel);
+		passwordPanel.add(passwordTextBox);
+
 		// Assemble Add Stock panel.
 		newStatusTextBox.setWidth("500px");
 		newStatusTextBox.setMaxLength(140);
@@ -83,8 +97,8 @@ public class TwitterClient implements EntryPoint {
 		errorMsgLabel.setStyleName("errorMessage");
 		errorMsgLabel.setVisible(false);
 
-		mainPanel.add(idTextBox);
-		mainPanel.add(passwordTextBox);
+		mainPanel.add(idPanel);
+		mainPanel.add(passwordPanel);
 		mainPanel.add(loginButton);
 		mainPanel.add(logoutButton);
 
