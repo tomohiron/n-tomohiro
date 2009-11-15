@@ -1,0 +1,31 @@
+<project name="blazeds-sample" default="flex" basedir=".">
+
+    <property name="FLEX_HOME" value="C:/flex_sdk_3.4.0.9271" />
+    <property name="flex.src" value="src/main/flex" />
+    <property name="flex.out" value="webapp/bin" />
+
+    <taskdef resource="flexTasks.tasks" classpath="${FLEX_HOME}/ant/lib/flexTasks.jar" />
+
+    <target name="clean">
+        <delete>
+            <fileset dir="${flex.out}">
+                <include name="**/*.swf" />
+                <include name="**/*.swf.cache" />
+            </fileset>
+        </delete>
+    </target>
+
+    <target name="flex" depends="clean">
+        <!--
+        <mxmlc file="${flex.src}/example.mxml" output="${flex.out}/example.swf" />
+        -->
+        <mxmlc file="${flex.src}/main.mxml"
+               output="${flex.out}/main.swf"
+               services="webapp/WEB-INF/flex/services-config.xml"
+               locale="ja_JP"
+               context-root="/${ant.project.name}"
+               incremental="true"
+               debug="true" />
+    </target>
+
+</project>
