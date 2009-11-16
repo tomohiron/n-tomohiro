@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml"
+	backgroundColor="#FFFFFF">
+
+	<mx:RemoteObject id="service" destination="o2Service" />
+
+	<mx:TextInput id="target" text="world" />
+
+	<mx:Button label="Get Message"
+		click="service.getMessage(target.text)" />
+
+	<mx:Label text="{service.getMessage.lastResult}" />
+
+</mx:Application>
