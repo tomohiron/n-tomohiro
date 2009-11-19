@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml"
-	backgroundColor="#FFFFFF">
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml">
 
 	<mx:RemoteObject id="service" destination="o2Service" />
 
