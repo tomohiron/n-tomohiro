@@ -1,28 +1,35 @@
 <project name="o2" default="flex" basedir=".">
 
-	<property name="FLEX_HOME" value="C:/flex_sdk_3.4.0.9271" />
-	<property name="flex.src" value="flex" />
-	<property name="flex.out" value="war/bin" />
+    <property name="FLEX_HOME" value="C:/flex_sdk_3.4.0.9271" />
+    <property name="flex.root" value="flex" />
+    <property name="flex.locale" value="ja_JP" />
+    <property name="flex.out" value="war/bin" />
 
-	<taskdef resource="flexTasks.tasks" classpath="${FLEX_HOME}/ant/lib/flexTasks.jar" />
+    <taskdef resource="flexTasks.tasks" classpath="${FLEX_HOME}/ant/lib/flexTasks.jar" />
 
-	<target name="clean">
-		<delete>
-			<fileset dir="${flex.out}">
-				<include name="**/*.swf" />
-				<include name="**/*.swf.cache" />
-			</fileset>
-		</delete>
-	</target>
+    <target name="clean">
+        <delete>
+            <fileset dir="${flex.out}">
+                <include name="**/*.swf" />
+                <include name="**/*.swf.cache" />
+            </fileset>
+        </delete>
+    </target>
 
-	<target name="flex" depends="clean">
-		<mxmlc file="${flex.src}/main.mxml"
-		       output="${flex.out}/main.swf"
-		       services="war/WEB-INF/flex/services-config.xml"
-		       locale="ja_JP"
-		       context-root="/"
-		       incremental="true"
-		       debug="true" />
-	</target>
+    <target name="flex" depends="clean">
+        <mxmlc file="${flex.root}/src/main.mxml"
+               output="${flex.out}/main.swf"
+               services="war/WEB-INF/flex/services-config.xml"
+               locale="${flex.locale}"
+               context-root="/"
+               incremental="true"
+               debug="true"
+               benchmark="true">
+            <compiler.library-path dir="." append="true">
+                <include name="${flex.root}/libs" />
+                <include name="${flex.root}/locale/${flex.locale}" />
+            </compiler.library-path>
+        </mxmlc>
+    </target>
 
 </project>
