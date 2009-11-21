@@ -10,10 +10,6 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 	</listener>
 
 	<servlet>
-		<servlet-name>O2</servlet-name>
-		<servlet-class>jp.o2.O2Servlet</servlet-class>
-	</servlet>
-	<servlet>
 		<servlet-name>MessageBrokerServlet</servlet-name>
 		<servlet-class>flex.messaging.MessageBrokerServlet</servlet-class>
 		<init-param>
@@ -23,10 +19,6 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 		<load-on-startup>1</load-on-startup>
 	</servlet>
 
-	<servlet-mapping>
-		<servlet-name>O2</servlet-name>
-		<url-pattern>/o2</url-pattern>
-	</servlet-mapping>
 	<servlet-mapping>
 		<servlet-name>MessageBrokerServlet</servlet-name>
 		<url-pattern>/messagebroker/*</url-pattern>
