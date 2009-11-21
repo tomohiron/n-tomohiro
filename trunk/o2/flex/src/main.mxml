@@ -5,8 +5,7 @@
 
 	<mx:TextInput id="target" text="world" />
 
-	<mx:Button label="Get Message"
-		click="service.getMessage(target.text)" />
+	<mx:Button label="Get Message" click="service.getMessage(target.text)" />
 
 	<mx:Label text="{service.getMessage.lastResult}" />
 
