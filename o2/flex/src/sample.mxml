@@ -1,12 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <mx:Application xmlns:mx="http://www.adobe.com/2006/mxml">
 
+	<mx:Script>
+		public function click2():void {
+		var map:Object = new Object();
+		map.text1 = text1.text;
+		map.text2 = text2.text;
+		service.getSwapMessage(map);
+		}
+	</mx:Script>
+
 	<mx:RemoteObject id="service" destination="o2Service" />
 
 	<mx:TextInput id="target" text="world" />
-
 	<mx:Button label="Get Message" click="service.getMessage(target.text)" />
-
 	<mx:Label text="{service.getMessage.lastResult}" />
+
+	<mx:TextInput id="greeting" text="hello" />
+	<mx:Button label="Set Greeting" click="service.setGreeting(greeting.text)" />
+
+	<mx:TextInput id="text1" text="one" />
+	<mx:TextInput id="text2" text="two" />
+	<mx:Button label="Swap Message" click="click2()" />
+	<mx:Label text="{service.getSwapMessage.lastResult.text1}" />
+	<mx:Label text="{service.getSwapMessage.lastResult.text2}" />
 
 </mx:Application>
