@@ -2,6 +2,10 @@
 <!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
 <beans>
 
-	<bean id="o2Service" class="jp.o2.service.O2Service" />
+    <bean id="sessionData" class="jp.o2.service.SessionDataImplFlex" />
+
+    <bean id="o2Service" class="jp.o2.service.O2Service">
+        <property name="sessionData" ref="sessionData" />
+    </bean>
 
 </beans>
