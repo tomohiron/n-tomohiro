@@ -11,7 +11,7 @@ package jp.o2.form
         private var menubarXML:XMLList=
             <>
                 <menuitem label="Market" data="top">
-                    <menuitem label="Yield" data="1"/>
+                    <menuitem label="Yield" data="0"/>
                 </menuitem>
                 <menuitem label="Deal Entry" data="top">
                     <menuitem label="Interest Rate Swap" data="0"/>

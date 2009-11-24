@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:VBox xmlns:mx="http://www.adobe.com/2006/mxml" xmlns:o2="jp.o2.form.*">
+
+    <o2:MarketYieldModel id="model" />
+
+    <!--
+         <ohara:DealPerformanceBoxController id="controller" />
+
+         <formatter:DateColumnFormatter id="dateColumnFormatter" />
+    -->
+
+    <mx:RemoteObject id="service" destination="MarketYieldService" />
+
+    <mx:Label htmlText="Market &gt; &lt;b&gt;Yield&lt;/b&gt;" />
+
+    <mx:ComboBox dataProvider="{model.yieldList}" />
+
+    <mx:HBox>
+        <mx:VBox>
+            <mx:Label text="depo rate" />
+            <mx:Grid>
+                <mx:GridRow>
+                    <mx:GridItem>
+                        <mx:Label text="6M" />
+                    </mx:GridItem>
+                    <mx:GridItem>
+                        <mx:TextInput id="m06" />
+                    </mx:GridItem>
+                </mx:GridRow>
+                <mx:GridRow>
+                    <mx:GridItem>
+                        <mx:Label text="12M" />
+                    </mx:GridItem>
+                    <mx:GridItem>
+                        <mx:TextInput id="m12" />
+                    </mx:GridItem>
+                </mx:GridRow>
+            </mx:Grid>
+        </mx:VBox>
+        <mx:VBox>
+            <mx:Label text="swap rate" />
+            <mx:Grid>
+                <mx:GridRow>
+                    <mx:GridItem>
+                        <mx:Label text="2Y" />
+                    </mx:GridItem>
+                    <mx:GridItem>
+                        <mx:TextInput id="y02" />
+                    </mx:GridItem>
+                </mx:GridRow>
+                <mx:GridRow>
+                    <mx:GridItem>
+                        <mx:Label text="3Y" />
+                    </mx:GridItem>
+                    <mx:GridItem>
+                        <mx:TextInput id="y03" />
+                    </mx:GridItem>
+                </mx:GridRow>
+            </mx:Grid>
+        </mx:VBox>
+    </mx:HBox>
+
+</mx:VBox>
