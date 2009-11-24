@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Panel xmlns:mx="http://www.adobe.com/2006/mxml" xmlns:o2="jp.o2.form.*" width="100%" height="100%" layout="vertical"
+          horizontalAlign="left" verticalAlign="top" title="O2 project">
+
+    <o2:O2MainModel id="model" />
+    <o2:O2MainController id="controller" />
+
+    <mx:RemoteObject id="service" destination="o2MainService" />
+
+    <mx:MenuBar labelField="@label" itemClick="controller.menuHandler(event);" dataProvider="{model.menuBarCollection}"
+                width="100%" />
+
+    <mx:ViewStack id="viewStack" width="100%" height="100%">
+
+        <!--
+             <o2:MarketYield id="marketYield"/>
+        -->
+
+    </mx:ViewStack>
+
+</mx:Panel>
