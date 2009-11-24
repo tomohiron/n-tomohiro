@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" xmlns:ohara="jp.co.isid.o2.*">
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" xmlns:o2="jp.o2.form.*">
 
-	<ohara:O2Main />
+    <o2:O2Main />
 
 </mx:Application>

@@ -1,6 +1,6 @@
 <project name="o2" default="flex" basedir=".">
 
-    <property name="FLEX_HOME" value="D:\Flex\flex_sdk_3.4.0.9271" />
+    <property name="FLEX_HOME" value="C:\flex_sdk_3.4.0.9271" />
     <property name="flex.root" value="flex" />
     <property name="flex.locale" value="ja_JP" />
     <property name="flex.out" value="war/bin" />
@@ -17,8 +17,8 @@
     </target>
 
     <target name="flex" depends="clean">
-        <mxmlc file="${flex.root}/src/sample.mxml"
-               output="${flex.out}/sample.swf"
+        <mxmlc file="${flex.root}/src/main.mxml"
+               output="${flex.out}/main.swf"
                services="war/WEB-INF/flex/services-config.xml"
                locale="${flex.locale}"
                context-root="/"
