@@ -3,6 +3,7 @@ package jp.gacha;
 import java.io.IOException;
 import java.util.Map;
 import java.util.Properties;
+import java.util.ResourceBundle;
 
 import javax.mail.Message;
 import javax.mail.MessagingException;
@@ -19,10 +20,10 @@ public class SendMailService extends HttpServlet {
 	public static void sendMail(Map<String, String> content)
 			throws IOException, AddressException, MessagingException {
 
-		String from = "gachapin.noreply@gmail.com";
-		String to = "tomohiron@softbank.ne.jp";
-		// "08012704369@docomo.ne.jp"
-		String subject = "TK";
+		ResourceBundle bundle = ResourceBundle.getBundle("gacha");
+		String from = bundle.getString("mail.from");
+		String to = bundle.getString("mail.to");
+		String subject = bundle.getString("mail.subject");
 
 		StringBuffer msgBody = new StringBuffer();
 		msgBody.append(content.get("year") + "-" + content.get("month"));
@@ -34,8 +35,7 @@ public class SendMailService extends HttpServlet {
 		msgBody.append(content.get("amount02") + "名\n");
 		msgBody.append("連絡事項：" + content.get("memo") + "\n");
 
-		Properties props = new Properties();
-		Session session = Session.getDefaultInstance(props, null);
+		Session session = Session.getDefaultInstance(new Properties(), null);
 		Message msg = new MimeMessage(session);
 		msg.setFrom(new InternetAddress(from));
 		msg.addRecipient(Message.RecipientType.TO, new InternetAddress(to, to));
