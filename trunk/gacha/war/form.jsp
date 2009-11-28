@@ -6,6 +6,8 @@
 <%
 ResourceBundle bundle = ResourceBundle.getBundle("gacha");
 String to = bundle.getString("mail.to");
+String maxString = bundle.getString("group.max");
+int max = Integer.parseInt(maxString);
 
 Calendar cal = Calendar.getInstance();
 int year = cal.get(Calendar.YEAR);
@@ -69,10 +71,22 @@ int date = cal.get(Calendar.DATE);
 
 <hr />
 
+<% for(int count=1;count<=max;count++) { %>
+
 <div>
-<input type="text" name="group01" />
+<select name="group<%= count %>" >
+  <option value=""></option>
+<%   for(int i=1;true;i++) {
+       if( !bundle.containsKey("group."+i) ) {
+         break;
+       }
+       String s = bundle.getString("group."+i); %>
+  <option value="<%= s %>"><%= s %></option>
+<%   } %>
+</select>
 ×
-<select name="amount01">
+<select name="amount<%= count %>">
+  <option value="0">0</option>
   <option value="1">1</option>
   <option value="2">2</option>
   <option value="3">3</option>
@@ -85,23 +99,11 @@ int date = cal.get(Calendar.DATE);
 </select>
 名
 </div>
-<div>
-<input type="text" name="group02" />
-×
-<select name="amount02">
-  <option value="1">1</option>
-  <option value="2">2</option>
-  <option value="3">3</option>
-  <option value="4">4</option>
-  <option value="5">5</option>
-  <option value="6">6</option>
-  <option value="7">7</option>
-  <option value="8">8</option>
-  <option value="9">9</option>
-</select>
-名
-</div>
+
+<% } %>
+
 <hr />
+
 <div>
 連絡事項・前日の残業等：
 </div>

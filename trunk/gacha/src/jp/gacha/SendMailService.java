@@ -25,14 +25,23 @@ public class SendMailService extends HttpServlet {
 		String to = bundle.getString("mail.to");
 		String subject = bundle.getString("mail.subject");
 
+		String maxString = bundle.getString("group.max");
+		int max = Integer.parseInt(maxString);
+
 		StringBuffer msgBody = new StringBuffer();
 		msgBody.append(content.get("year") + "-" + content.get("month"));
 		msgBody.append("-" + content.get("date") + "\n");
 		msgBody.append("現場名：" + content.get("genba") + "\n");
-		msgBody.append(content.get("group01") + "×");
-		msgBody.append(content.get("amount01") + "名\n");
-		msgBody.append(content.get("group02") + "×");
-		msgBody.append(content.get("amount02") + "名\n");
+
+		for (int count = 1; count <= max; count++) {
+			String groupName = content.get("group" + count);
+			if ("".equals(groupName)) {
+				continue;
+			}
+			msgBody.append(groupName + "×");
+			msgBody.append(content.get("amount" + count) + "名\n");
+		}
+
 		msgBody.append("連絡事項：" + content.get("memo") + "\n");
 
 		Session session = Session.getDefaultInstance(new Properties(), null);
