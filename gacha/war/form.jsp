@@ -1,8 +1,12 @@
 <%@page contentType="text/html"%>
 <%@page pageEncoding="UTF-8"%>
 <%@page import="java.util.Calendar" %>
+<%@page import="java.util.ResourceBundle" %>
 
 <%
+ResourceBundle bundle = ResourceBundle.getBundle("gacha");
+String to = bundle.getString("mail.to");
+
 Calendar cal = Calendar.getInstance();
 int year = cal.get(Calendar.YEAR);
 int month = cal.get(Calendar.MONTH) + 1;
@@ -99,7 +103,7 @@ int date = cal.get(Calendar.DATE);
 </div>
 <hr />
 <div>
-連絡事項・前日の残業等
+連絡事項・前日の残業等：
 </div>
 <div>
 <textarea name="memo" rows="3"></textarea>
@@ -107,6 +111,10 @@ int date = cal.get(Calendar.DATE);
 
 <hr />
 
+<div>
+宛先：
+<input type="text" value="<%= to %>" disabled="disabled" />
+</div>
 <input type="submit" value="送信！" />
 
 </form>
