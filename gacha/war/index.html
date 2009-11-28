@@ -3,14 +3,18 @@
 <html>
 <head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Style-Type" content="text/css">
 <title>TK日報フォーマット</title>
 </head>
 
 <body>
-<b>TK日報フォーマット</b>
-ver.1.0
+
+<div>TK日報フォーマット</div>
+<div>ver.1.0</div>
 
 <form method="post" action="gacha">
+
+<div>
 <select name="year">
   <option value="2009">2009</option>
   <option value="2010">2010</option>
@@ -66,9 +70,14 @@ ver.1.0
   <option value="31">31</option>
 </select>
 日 
-<br />
-現場名：<input type="text" name="genba" /><br />
+</div>
+<div>
+現場名：<input type="text" name="genba" />
+</div>
+
 <hr />
+
+<div>
 <input type="text" name="group01" />
 ×
 <select name="amount01">
@@ -82,7 +91,9 @@ ver.1.0
   <option value="8">8</option>
   <option value="9">9</option>
 </select>
-名<br />
+名
+</div>
+<div>
 <input type="text" name="group02" />
 ×
 <select name="amount02">
@@ -96,12 +107,20 @@ ver.1.0
   <option value="8">8</option>
   <option value="9">9</option>
 </select>
-名<br />
+名
+</div>
 <hr />
-連絡事項・前日の残業等<br />
-<textarea name="memo" rows="3"></textarea>
+<div>
+連絡事項・前日の残業等
+</div>
+<div>
+<textarea name="memo" rows="3">なし</textarea>
+</div>
+
 <hr />
-<input type="submit" value="送信" />
+
+<input type="submit" value="送信！" />
+
 </form>
 
 </body>
