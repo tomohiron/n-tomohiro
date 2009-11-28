@@ -3,26 +3,105 @@
 <html>
 <head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-<title>gacha-pin mail form</title>
+<title>TK日報フォーマット</title>
 </head>
 
 <body>
-<b>メール送信サンプル</b>
+<b>TK日報フォーマット</b>
+ver.1.0
 
 <form method="post" action="gacha">
-<table>
-  <tr>
-    <td>氏名:</td>
-    <td><input type="text" name="name" /></td>
-  </tr>
-  <tr>
-    <td>年齢:</td>
-    <td><input type="text" name="age" /></td>
-  </tr>
-  <tr>
-    <td><input type="submit" value="送信" /></td>
-  </tr>
-</table>
+<select name="year">
+  <option value="2009">2009</option>
+  <option value="2010">2010</option>
+  <option value="2011">2011</option>
+</select>
+年
+<select name="month">
+  <option value="01">01</option>
+  <option value="02">02</option>
+  <option value="03">03</option>
+  <option value="04">04</option>
+  <option value="05">05</option>
+  <option value="06">06</option>
+  <option value="07">07</option>
+  <option value="08">08</option>
+  <option value="09">09</option>
+  <option value="10">10</option>
+  <option value="11">11</option>
+  <option value="12">12</option>
+</select>
+月
+<select name="date">
+  <option value="01">01</option>
+  <option value="02">02</option>
+  <option value="03">03</option>
+  <option value="04">04</option>
+  <option value="05">05</option>
+  <option value="06">06</option>
+  <option value="07">07</option>
+  <option value="08">08</option>
+  <option value="09">09</option>
+  <option value="10">10</option>
+  <option value="11">11</option>
+  <option value="12">12</option>
+  <option value="13">13</option>
+  <option value="14">14</option>
+  <option value="15">15</option>
+  <option value="16">16</option>
+  <option value="17">17</option>
+  <option value="18">18</option>
+  <option value="19">19</option>
+  <option value="20">20</option>
+  <option value="21">21</option>
+  <option value="22">22</option>
+  <option value="23">23</option>
+  <option value="24">24</option>
+  <option value="25">25</option>
+  <option value="26">26</option>
+  <option value="27">27</option>
+  <option value="28">28</option>
+  <option value="29">29</option>
+  <option value="30">30</option>
+  <option value="31">31</option>
+</select>
+日 
+<br />
+現場名：<input type="text" name="genba" /><br />
+<hr />
+<input type="text" name="group01" />
+×
+<select name="amount01">
+  <option value="1">1</option>
+  <option value="2">2</option>
+  <option value="3">3</option>
+  <option value="4">4</option>
+  <option value="5">5</option>
+  <option value="6">6</option>
+  <option value="7">7</option>
+  <option value="8">8</option>
+  <option value="9">9</option>
+</select>
+名<br />
+<input type="text" name="group02" />
+×
+<select name="amount02">
+  <option value="1">1</option>
+  <option value="2">2</option>
+  <option value="3">3</option>
+  <option value="4">4</option>
+  <option value="5">5</option>
+  <option value="6">6</option>
+  <option value="7">7</option>
+  <option value="8">8</option>
+  <option value="9">9</option>
+</select>
+名<br />
+<hr />
+連絡事項・前日の残業等<br />
+<textarea name="memo" rows="3"></textarea>
+<hr />
+<input type="submit" value="送信" />
 </form>
 
 </body>
