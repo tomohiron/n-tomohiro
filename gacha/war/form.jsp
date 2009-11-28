@@ -14,7 +14,7 @@ int date = cal.get(Calendar.DATE);
 <html>
 <head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="content-style-type" content="text/css">
 <title>TK日報フォーマット</title>
 </head>
 
@@ -25,7 +25,7 @@ int date = cal.get(Calendar.DATE);
 
 <hr />
 
-<form method="post" action="gacha">
+<form method="post" action="send">
 
 <div>
 <select name="year" >
