@@ -44,8 +44,7 @@ int date = cal.get(Calendar.DATE);
   <option value="<%= i %>"><%= i %>年</option>
 <%   }
    } %>
-</select>
-<select name="month" >
+</select><select name="month" >
 <% for(int i=1;i<=12;i++) {
      if( i == month ) { %>
   <option value="<%= i %>" selected="selected"><%= i %>月</option>
@@ -53,8 +52,7 @@ int date = cal.get(Calendar.DATE);
   <option value="<%= i %>"><%= i %>月</option>
 <%   }
    } %>
-</select>
-<select name="date" >
+</select><select name="date" >
 <% for(int i=1;i<=31;i++) {
      if( i == date ) { %>
   <option value="<%= i %>" selected="selected"><%= i %>日</option>
@@ -86,9 +84,7 @@ int date = cal.get(Calendar.DATE);
        String s = bundle.getString("group."+i); %>
   <option value="<%= s %>"><%= s %></option>
 <%   } %>
-</select>
-x
-<select name="amount<%= count %>">
+</select>x<select name="amount<%= count %>">
   <option value="0">0名</option>
   <option value="1">1名</option>
   <option value="2">2名</option>
@@ -105,16 +101,14 @@ x
 <% } %>
 
 <div>
-合計:
-<input type="text" name="total" size="2"
-       istyle="4" format="*N" mode="numeric" />
-名
+合計:<input type="text" name="total" size="2"
+       istyle="4" format="*N" mode="numeric" />名
 </div>
 
 <hr />
 
 <div>
-連絡事項・前日の残業等:
+連絡事項・前日の残業等
 </div>
 <div>
 <textarea name="memo" rows="3"></textarea>
