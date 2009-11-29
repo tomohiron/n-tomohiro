@@ -105,7 +105,10 @@ x
 <% } %>
 
 <div>
-合計:<input type="text" name="total" size="2" />名
+合計:
+<input type="text" name="total" size="2"
+       istyle="4" format="*N" mode="numeric" />
+名
 </div>
 
 <hr />
