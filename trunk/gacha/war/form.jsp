@@ -2,14 +2,16 @@
 <%@page pageEncoding="UTF-8"%>
 <%@page import="java.util.Calendar" %>
 <%@page import="java.util.ResourceBundle" %>
+<%@page import="java.util.TimeZone" %>
+
 
 <%
 ResourceBundle bundle = ResourceBundle.getBundle("gacha");
-String to = bundle.getString("mail.to");
 String maxString = bundle.getString("group.max");
 int max = Integer.parseInt(maxString);
 
-Calendar cal = Calendar.getInstance();
+TimeZone tz = TimeZone.getTimeZone("Asia/Tokyo");
+Calendar cal = Calendar.getInstance(tz);
 int year = cal.get(Calendar.YEAR);
 int month = cal.get(Calendar.MONTH) + 1;
 int date = cal.get(Calendar.DATE);
@@ -26,8 +28,8 @@ int date = cal.get(Calendar.DATE);
 
 <body>
 
-<div>TK日報フォーマット</div>
-<div>ver.1.0</div>
+<div>TK日報フォーマット ver.1.0</div>
+<div>(管理者:村田尚彌)</div>
 
 <hr />
 
@@ -37,36 +39,37 @@ int date = cal.get(Calendar.DATE);
 <select name="year" >
 <% for(int i=2009;i<=2011;i++) {
      if( i == year ) { %>
-  <option value="<%= i %>" selected="selected"><%= i %></option>
+  <option value="<%= i %>" selected="selected"><%= i %>年</option>
 <%   } else { %>
-  <option value="<%= i %>"><%= i %></option>
+  <option value="<%= i %>"><%= i %>年</option>
 <%   }
    } %>
 </select>
-年
 <select name="month" >
 <% for(int i=1;i<=12;i++) {
      if( i == month ) { %>
-  <option value="<%= i %>" selected="selected"><%= i %></option>
+  <option value="<%= i %>" selected="selected"><%= i %>月</option>
 <%   } else { %>
-  <option value="<%= i %>"><%= i %></option>
+  <option value="<%= i %>"><%= i %>月</option>
 <%   }
    } %>
 </select>
-月
 <select name="date" >
 <% for(int i=1;i<=31;i++) {
      if( i == date ) { %>
-  <option value="<%= i %>" selected="selected"><%= i %></option>
+  <option value="<%= i %>" selected="selected"><%= i %>日</option>
 <%   } else { %>
-  <option value="<%= i %>"><%= i %></option>
+  <option value="<%= i %>"><%= i %>日</option>
 <%   }
    } %>
 </select>
-日 
+</div>
+
+<div>
+送信者:<input type="text" name="soushin" />
 </div>
 <div>
-現場名：<input type="text" name="genba" />
+現場名:<input type="text" name="genba" />
 </div>
 
 <hr />
@@ -84,28 +87,31 @@ int date = cal.get(Calendar.DATE);
   <option value="<%= s %>"><%= s %></option>
 <%   } %>
 </select>
-×
+x
 <select name="amount<%= count %>">
-  <option value="0">0</option>
-  <option value="1">1</option>
-  <option value="2">2</option>
-  <option value="3">3</option>
-  <option value="4">4</option>
-  <option value="5">5</option>
-  <option value="6">6</option>
-  <option value="7">7</option>
-  <option value="8">8</option>
-  <option value="9">9</option>
+  <option value="0">0名</option>
+  <option value="1">1名</option>
+  <option value="2">2名</option>
+  <option value="3">3名</option>
+  <option value="4">4名</option>
+  <option value="5">5名</option>
+  <option value="6">6名</option>
+  <option value="7">7名</option>
+  <option value="8">8名</option>
+  <option value="9">9名</option>
 </select>
-名
 </div>
 
 <% } %>
 
+<div>
+合計:<input type="text" name="total" size="2" />名
+</div>
+
 <hr />
 
 <div>
-連絡事項・前日の残業等：
+連絡事項・前日の残業等:
 </div>
 <div>
 <textarea name="memo" rows="3"></textarea>
@@ -113,10 +119,6 @@ int date = cal.get(Calendar.DATE);
 
 <hr />
 
-<div>
-宛先：
-<input type="text" value="<%= to %>" disabled="disabled" />
-</div>
 <input type="submit" value="送信！" />
 
 </form>
