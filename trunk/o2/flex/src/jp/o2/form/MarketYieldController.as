@@ -8,14 +8,15 @@ package jp.o2.form
     import mx.controls.Alert;
     import mx.core.IMXMLObject;
     import mx.events.FlexEvent;
-    import mx.events.MenuEvent;
     import mx.rpc.AsyncToken;
     import mx.rpc.events.FaultEvent;
     import mx.rpc.events.ResultEvent;
+    import mx.rpc.remoting.RemoteObject;
 
     public class MarketYieldController implements IMXMLObject
     {
         private var view:MarketYield;
+        private var service:RemoteObject;
 
         public function MarketYieldController()
         {
@@ -25,6 +26,8 @@ package jp.o2.form
         {
             view=document as MarketYield;
             view.addEventListener(FlexEvent.CREATION_COMPLETE, creationComleteHandler);
+
+            service=new RemoteObject("marketYieldService");
         }
 
         public function creationComleteHandler(event:Event):void
@@ -49,7 +52,7 @@ package jp.o2.form
             yieldArray.push({id: "m06", rate: Number(view.m06.text)});
             yieldArray.push({id: "y01", rate: Number(view.y01.text)});
 
-            var token:AsyncToken=view.service.getNSpline(yieldArray);
+            var token:AsyncToken=service.getNSpline(yieldArray);
             token.addResponder(new ItemResponder(function(e:ResultEvent, obj:Object=null):void
                 {
                 // TODO
@@ -57,32 +60,6 @@ package jp.o2.form
                 {
                     Alert.show("fail at doGraph() : " + e.message);
                 }));
-        }
-
-        private function doEntry():void
-        {
-//            var newTerms:CommodityCapTermsDto=new CommodityCapTermsDto();
-//            newTerms.notional=Number(view.notionalField.text);
-//            newTerms.commodity=view.commodityCombo.selectedItem.data;
-//            newTerms.commoditySource=view.commoditySourceField.text;
-//            newTerms.currency=view.currencyCombo.selectedItem.data;
-//            newTerms.strike=Number(view.strikeField.text);
-//            newTerms.startDate=view.startDateField.selectedDate;
-//            newTerms.endDate=view.endDateField.selectedDate;
-//            newTerms.frequency=view.frequencyCombo.selectedItem.data;
-//            newTerms.odd=view.oddCombo.selectedItem.data;
-//            newTerms.dateRolling=view.dateRollingCombo.selectedItem.data;
-//            newTerms.calendar=view.calendarCombo.selectedItem.data;
-//            newTerms.premium=Number(view.premiumField.text);
-//
-//            var token:AsyncToken=view.service.entryDeal(newTerms);
-//            token.addResponder(new ItemResponder(function(e:ResultEvent, obj:Object=null):void
-//                {
-//                // TODO
-//                }, function(e:FaultEvent, obj:Object=null):void
-//                {
-//                    Alert.show("fail at entryDeal() : " + e.message);
-//                }));
         }
     }
 }

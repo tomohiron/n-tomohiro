@@ -9,7 +9,7 @@ public class MarketYieldService {
 	private static final Logger logger = Logger
 			.getLogger(MarketYieldService.class.getName());
 
-	public void getNSpline(List<Map<String, Object>> yeildArray) {
+	public List<Double> getNSpline(List<Map<String, Object>> yeildArray) {
 		logger.info(yeildArray.toString());
 
 		for (Map<String, Object> yield : yeildArray) {
@@ -19,5 +19,6 @@ public class MarketYieldService {
 			logger.info("rate=" + rate);
 		}
 
+		return null;
 	}
 }
