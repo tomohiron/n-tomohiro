@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 @SuppressWarnings("serial")
 public class SendMailServlet extends HttpServlet {
 
-	private static final Logger LOGGER = Logger.getLogger(SendMailService.class
+	private static final Logger LOGGER = Logger.getLogger(SendMailServlet.class
 			.getName());
 
 	public void doPost(HttpServletRequest req, HttpServletResponse resp)
