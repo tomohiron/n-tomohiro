@@ -28,7 +28,8 @@ public class SendMailService extends HttpServlet {
 		String from = bundle.getString("mail.from");
 		String to1 = bundle.getString("mail.to.1");
 		String to2 = bundle.getString("mail.to.2");
-		String subject = bundle.getString("mail.subject");
+		String subject = bundle.getString("mail.subject") + "-"
+				+ content.get("soushin");
 
 		String maxString = bundle.getString("group.max");
 		int max = Integer.parseInt(maxString);
@@ -36,8 +37,8 @@ public class SendMailService extends HttpServlet {
 		StringBuffer msgBody = new StringBuffer();
 		msgBody.append(content.get("year") + "-" + content.get("month"));
 		msgBody.append("-" + content.get("date") + "\n");
-		msgBody.append("送信者：" + content.get("soushin") + "\n");
-		msgBody.append("現場名：" + content.get("genba") + "\n");
+		msgBody.append("送信者:" + content.get("soushin") + "\n");
+		msgBody.append("現場名:" + content.get("genba") + "\n");
 
 		for (int count = 1; count <= max; count++) {
 			String groupName = content.get("group" + count);
@@ -48,17 +49,17 @@ public class SendMailService extends HttpServlet {
 			msgBody.append(content.get("amount" + count) + "名\n");
 		}
 
-		msgBody.append("合計：" + content.get("total") + "名\n");
-		msgBody.append("連絡事項：" + content.get("memo") + "\n");
+		msgBody.append("合計:" + content.get("total") + "名\n");
+		msgBody.append("連絡事項:" + content.get("memo") + "\n");
 
 		Session session = Session.getDefaultInstance(new Properties(), null);
-		Message msg = new MimeMessage(session);
+		MimeMessage msg = new MimeMessage(session);
 		msg.setFrom(new InternetAddress(from));
 		msg.addRecipient(Message.RecipientType.TO,
 				new InternetAddress(to1, to1));
 		msg.addRecipient(Message.RecipientType.TO,
 				new InternetAddress(to2, to2));
-		msg.setSubject(subject);
+		msg.setSubject(subject, "ISO-2022-JP");
 		msg.setText(msgBody.toString());
 
 		Transport.send(msg);
