@@ -4,12 +4,6 @@
     <o2:MarketYieldModel id="model" />
     <o2:MarketYieldController id="controller" />
 
-    <!--
-         <formatter:DateColumnFormatter id="dateColumnFormatter" />
-    -->
-
-    <mx:RemoteObject id="service" destination="marketYieldService" />
-
     <mx:Label htmlText="Market &gt; &lt;b&gt;Yield&lt;/b&gt;" />
 
     <mx:ComboBox dataProvider="{model.yieldList}" />
@@ -19,6 +13,14 @@
         <mx:VBox>
             <mx:Label text="depo rate" />
             <mx:Grid>
+                <mx:GridRow>
+                    <mx:GridItem>
+                        <mx:Label text="term" />
+                    </mx:GridItem>
+                    <mx:GridItem>
+                        <mx:Label text="rate[%]" />
+                    </mx:GridItem>
+                </mx:GridRow>
                 <mx:GridRow>
                     <mx:GridItem>
                         <mx:Label text="6M" />
@@ -41,6 +43,14 @@
         <mx:VBox>
             <mx:Label text="swap rate" />
             <mx:Grid>
+                <mx:GridRow>
+                    <mx:GridItem>
+                        <mx:Label text="term" />
+                    </mx:GridItem>
+                    <mx:GridItem>
+                        <mx:Label text="rate[%]" />
+                    </mx:GridItem>
+                </mx:GridRow>
                 <mx:GridRow>
                     <mx:GridItem>
                         <mx:Label text="1Y" />
