@@ -2,20 +2,20 @@
 <mx:VBox xmlns:mx="http://www.adobe.com/2006/mxml" xmlns:o2="jp.o2.form.*">
 
     <o2:MarketYieldModel id="model" />
+    <o2:MarketYieldController id="controller" />
 
     <!--
-         <ohara:DealPerformanceBoxController id="controller" />
-
          <formatter:DateColumnFormatter id="dateColumnFormatter" />
     -->
 
-    <mx:RemoteObject id="service" destination="MarketYieldService" />
+    <mx:RemoteObject id="service" destination="marketYieldService" />
 
     <mx:Label htmlText="Market &gt; &lt;b&gt;Yield&lt;/b&gt;" />
 
     <mx:ComboBox dataProvider="{model.yieldList}" />
 
     <mx:HBox>
+
         <mx:VBox>
             <mx:Label text="depo rate" />
             <mx:Grid>
@@ -37,9 +37,26 @@
                 </mx:GridRow>
             </mx:Grid>
         </mx:VBox>
+
         <mx:VBox>
             <mx:Label text="swap rate" />
             <mx:Grid>
+                <mx:GridRow>
+                    <mx:GridItem>
+                        <mx:Label text="1Y" />
+                    </mx:GridItem>
+                    <mx:GridItem>
+                        <mx:TextInput id="y01" />
+                    </mx:GridItem>
+                </mx:GridRow>
+                <mx:GridRow>
+                    <mx:GridItem>
+                        <mx:Label text="1.5Y" />
+                    </mx:GridItem>
+                    <mx:GridItem>
+                        <mx:TextInput id="y01_5" />
+                    </mx:GridItem>
+                </mx:GridRow>
                 <mx:GridRow>
                     <mx:GridItem>
                         <mx:Label text="2Y" />
@@ -56,8 +73,27 @@
                         <mx:TextInput id="y03" />
                     </mx:GridItem>
                 </mx:GridRow>
+                <mx:GridRow>
+                    <mx:GridItem>
+                        <mx:Label text="4Y" />
+                    </mx:GridItem>
+                    <mx:GridItem>
+                        <mx:TextInput id="y04" />
+                    </mx:GridItem>
+                </mx:GridRow>
+                <mx:GridRow>
+                    <mx:GridItem>
+                        <mx:Label text="5Y" />
+                    </mx:GridItem>
+                    <mx:GridItem>
+                        <mx:TextInput id="y05" />
+                    </mx:GridItem>
+                </mx:GridRow>
             </mx:Grid>
         </mx:VBox>
+
     </mx:HBox>
+
+    <mx:Button id="graphButton" label="graph" />
 
 </mx:VBox>
