@@ -106,4 +106,20 @@
 
     <mx:Button id="graphButton" label="graph" />
 
+    <mx:Stroke id="s1" color="blue" weight="2" />
+
+    <mx:LineChart id="yieldChart" width="100%" paddingLeft="5" paddingRight="5" showDataTips="true"
+                  dataProvider="{model.yieldCurve}">
+
+        <mx:horizontalAxis>
+            <mx:CategoryAxis categoryField="term" />
+        </mx:horizontalAxis>
+
+        <mx:series>
+            <mx:LineSeries yField="rate" form="curve" displayName="yield" lineStroke="{s1}" />
+        </mx:series>
+    </mx:LineChart>
+
+    <mx:Legend dataProvider="{yieldChart}" />
+
 </mx:VBox>

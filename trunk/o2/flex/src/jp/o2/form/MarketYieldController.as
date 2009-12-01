@@ -24,10 +24,10 @@ package jp.o2.form
 
         public function initialized(document:Object, id:String):void
         {
-            view=document as MarketYield;
+            view = document as MarketYield;
             view.addEventListener(FlexEvent.CREATION_COMPLETE, creationComleteHandler);
 
-            service=new RemoteObject("marketYieldService");
+            service = new RemoteObject("marketYieldService");
         }
 
         public function creationComleteHandler(event:Event):void
@@ -42,24 +42,41 @@ package jp.o2.form
 
         private function doGraph():void
         {
+            var max:Number = 10.0;
+            var ratio:Number = 100.0;
+
+            var array:Array = new Array();
+            for (var i:Number = 0; i <= max * ratio; i += 1)
+            {
+                var year:Number = i / ratio;
+                var term:String = "";
+                if (i % ratio == 0)
+                {
+                    term = year.toFixed(1);
+                }
+                array.push({term: term, rate: Math.pow(year - 2.0, 2.0) - 2.0});
+            }
+
+            view.model.yieldCurve = new ArrayCollection(array);
+
 //            var yieldIDs:Array=["m06", "y01", "y01_5", "y02", "y03", "y04", "y05"];
 //            for each (var yieldID:String in yieldIDs)
 //            {
 //                var yield:Object={id: yieldID, data: Number(view.get(yieldID))};
 //            }
 
-            var yieldArray:Array=new Array();
-            yieldArray.push({id: "m06", rate: Number(view.m06.text)});
-            yieldArray.push({id: "y01", rate: Number(view.y01.text)});
-
-            var token:AsyncToken=service.getNSpline(yieldArray);
-            token.addResponder(new ItemResponder(function(e:ResultEvent, obj:Object=null):void
-                {
-                // TODO
-                }, function(e:FaultEvent, obj:Object=null):void
-                {
-                    Alert.show("fail at doGraph() : " + e.message);
-                }));
+//            var yieldArray:Array=new Array();
+//            yieldArray.push({id: "m06", rate: Number(view.m06.text)});
+//            yieldArray.push({id: "y01", rate: Number(view.y01.text)});
+//
+//            var token:AsyncToken=service.getNSpline(yieldArray);
+//            token.addResponder(new ItemResponder(function(e:ResultEvent, obj:Object=null):void
+//                {
+//                // TODO
+//                }, function(e:FaultEvent, obj:Object=null):void
+//                {
+//                    Alert.show("fail at doGraph() : " + e.message);
+//                }));
         }
     }
 }
