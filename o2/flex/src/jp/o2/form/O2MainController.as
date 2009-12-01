@@ -23,7 +23,7 @@ package jp.o2.form
 
         public function initialized(document:Object, id:String):void
         {
-            view=document as O2Main;
+            view = document as O2Main;
             view.addEventListener(FlexEvent.CREATION_COMPLETE, creationComleteHandler);
         }
 
@@ -31,7 +31,7 @@ package jp.o2.form
         {
             if (event.item.@data != "top")
             {
-                view.viewStack.selectedIndex=event.item.@data;
+                view.viewStack.selectedIndex = event.item.@data;
             }
         }
 

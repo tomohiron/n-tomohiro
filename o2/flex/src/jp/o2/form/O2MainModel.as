@@ -8,7 +8,7 @@ package jp.o2.form
     {
         public var menuBarCollection:XMLListCollection;
 
-        private var menubarXML:XMLList=
+        private var menubarXML:XMLList =
             <>
                 <menuitem label="Market" data="top">
                     <menuitem label="Yield" data="0"/>
@@ -24,7 +24,7 @@ package jp.o2.form
 
         public function O2MainModel()
         {
-            menuBarCollection=new XMLListCollection(menubarXML);
+            menuBarCollection = new XMLListCollection(menubarXML);
         }
     }
 }
