@@ -19,6 +19,8 @@ public class UpdateServlet extends HttpServlet {
 
         resp.setContentType("text/html");
         resp.setCharacterEncoding("UTF-8");
-        resp.getWriter().println("<html><body>管理情報を更新しました。</body></html>");
+        resp.getWriter().println("<html><body><div>管理情報を更新しました。<div>");
+        resp.getWriter().println("<a href='form.jsp'>通常画面</a>");
+        resp.getWriter().println("</body></html>");
     }
 }
