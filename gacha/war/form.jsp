@@ -3,9 +3,11 @@
 <%@page import="java.util.Calendar" %>
 <%@page import="java.util.ResourceBundle" %>
 <%@page import="java.util.TimeZone" %>
-
+<%@page import="jp.gacha.AdminService" %>
 
 <%
+String message = AdminService.getMessage();
+
 ResourceBundle bundle = ResourceBundle.getBundle("gacha");
 String maxString = bundle.getString("group.max");
 int max = Integer.parseInt(maxString);
@@ -28,8 +30,13 @@ int date = cal.get(Calendar.DATE);
 
 <body>
 
-<div>TK日報フォーマット ver.1.0</div>
+<div>TK日報フォーマット ver.1.1</div>
 <div>(管理者:村田尚彌)</div>
+
+<hr />
+
+<div>管理者からのメッセージ</div>
+<textarea rows="2" readonly="readonly"><%= message %></textarea>
 
 <hr />
 
