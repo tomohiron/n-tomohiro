@@ -1,8 +1,17 @@
 <%@page contentType="text/html"%>
 <%@page pageEncoding="UTF-8"%>
+<%@page import="java.util.Calendar" %>
 <%@page import="jp.gacha.AdminService" %>
 
 <%
+Calendar calNow = Calendar.getInstance();
+Calendar calOld = Calendar.getInstance();
+calOld.set(1970,0,1,0,0,0);
+response.setDateHeader("Last-Modified", calNow.getTime().getTime());
+response.setDateHeader("Expires", calOld.getTime().getTime());
+response.setHeader("pragma", "no-cache");
+response.setHeader("Cache-Control", "no-cache");
+
 String message = AdminService.getMessage();
 %>
 
