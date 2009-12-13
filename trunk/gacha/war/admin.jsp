@@ -25,16 +25,18 @@ String message = AdminService.getMessage();
 </head>
 
 <body>
+<font size="-1">
 
-<div>TK日報フォーマット[管理画面]</div>
+<div>TK日報フォーマット</div>
+<div>[管理画面]</div>
 
 <hr />
 
 <form method="post" action="update">
 
-<div>管理者からのメッセージ</div>
+<div>管理者からひとこと</div>
 <div>
-<textarea name="message" rows="2"><%= message %></textarea>
+<textarea name="message" rows="2" cols="16"><%= message %></textarea>
 </div>
 
 <hr />
@@ -43,5 +45,6 @@ String message = AdminService.getMessage();
 
 </form>
 
+</font>
 </body>
 </html>
