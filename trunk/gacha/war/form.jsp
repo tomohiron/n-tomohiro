@@ -45,7 +45,7 @@ int date = cal.get(Calendar.DATE);
 <hr />
 
 <div>管理者からひとこと</div>
-<textarea rows="2" cols="16" readonly="readonly"><%= message %></textarea>
+<div>「<b><%= message %></b>」</div>
 
 <hr />
 

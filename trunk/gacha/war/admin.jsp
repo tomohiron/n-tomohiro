@@ -35,9 +35,7 @@ String message = AdminService.getMessage();
 <form method="post" action="update">
 
 <div>管理者からひとこと</div>
-<div>
-<textarea name="message" rows="2" cols="16"><%= message %></textarea>
-</div>
+<input type="text" name="message" value="<%= message %>" size="16" />
 
 <hr />
 
