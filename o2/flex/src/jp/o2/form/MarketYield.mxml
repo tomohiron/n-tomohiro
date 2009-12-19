@@ -26,17 +26,19 @@
                         <mx:Label text="6M" />
                     </mx:GridItem>
                     <mx:GridItem>
-                        <mx:TextInput id="m06" text="0.1" />
+                        <mx:TextInput id="m06" text="0.40" enter="controller.doGraph()" />
                     </mx:GridItem>
                 </mx:GridRow>
+                <!--
                 <mx:GridRow>
                     <mx:GridItem>
                         <mx:Label text="12M" />
                     </mx:GridItem>
                     <mx:GridItem>
-                        <mx:TextInput id="m12" text="0.1" />
+                        <mx:TextInput id="m12" text="0.0" enter="controller.doGraph()" />
                     </mx:GridItem>
                 </mx:GridRow>
+                -->
             </mx:Grid>
         </mx:VBox>
 
@@ -56,7 +58,7 @@
                         <mx:Label text="1Y" />
                     </mx:GridItem>
                     <mx:GridItem>
-                        <mx:TextInput id="y01" text="0.1" />
+                        <mx:TextInput id="y01" text="0.60" enter="controller.doGraph()" />
                     </mx:GridItem>
                 </mx:GridRow>
                 <mx:GridRow>
@@ -64,7 +66,7 @@
                         <mx:Label text="1.5Y" />
                     </mx:GridItem>
                     <mx:GridItem>
-                        <mx:TextInput id="y01_5" text="0.1" />
+                        <mx:TextInput id="y01_5" text="0.80" enter="controller.doGraph()" />
                     </mx:GridItem>
                 </mx:GridRow>
                 <mx:GridRow>
@@ -72,7 +74,7 @@
                         <mx:Label text="2Y" />
                     </mx:GridItem>
                     <mx:GridItem>
-                        <mx:TextInput id="y02" text="0.1" />
+                        <mx:TextInput id="y02" text="1.00" enter="controller.doGraph()" />
                     </mx:GridItem>
                 </mx:GridRow>
                 <mx:GridRow>
@@ -80,7 +82,7 @@
                         <mx:Label text="3Y" />
                     </mx:GridItem>
                     <mx:GridItem>
-                        <mx:TextInput id="y03" text="0.1" />
+                        <mx:TextInput id="y03" text="1.30" enter="controller.doGraph()" />
                     </mx:GridItem>
                 </mx:GridRow>
                 <mx:GridRow>
@@ -88,7 +90,7 @@
                         <mx:Label text="4Y" />
                     </mx:GridItem>
                     <mx:GridItem>
-                        <mx:TextInput id="y04" text="0.1" />
+                        <mx:TextInput id="y04" text="1.60" enter="controller.doGraph()" />
                     </mx:GridItem>
                 </mx:GridRow>
                 <mx:GridRow>
@@ -96,7 +98,7 @@
                         <mx:Label text="5Y" />
                     </mx:GridItem>
                     <mx:GridItem>
-                        <mx:TextInput id="y05" text="0.1" />
+                        <mx:TextInput id="y05" text="1.90" enter="controller.doGraph()" />
                     </mx:GridItem>
                 </mx:GridRow>
             </mx:Grid>
