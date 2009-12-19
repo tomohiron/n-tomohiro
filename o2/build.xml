@@ -1,6 +1,6 @@
 <project name="o2" default="flex" basedir=".">
 
-    <property name="FLEX_HOME" value="C:\flex_sdk_3.4.0.9271" />
+    <property name="FLEX_HOME" value="/Users/tomohiro/Develop/flex_sdk_3.4" />
     <property name="flex.root" value="flex" />
     <property name="flex.locale" value="ja_JP" />
     <property name="flex.out" value="war/bin" />
