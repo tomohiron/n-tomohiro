@@ -34,6 +34,7 @@ package jp.o2.form
         public function creationComleteHandler(event:Event):void
         {
             view.graphButton.addEventListener(MouseEvent.CLICK, graphButtonClickHandler);
+            doGraph();
         }
 
         public function graphButtonClickHandler(event:MouseEvent):void
@@ -41,14 +42,8 @@ package jp.o2.form
             doGraph();
         }
 
-        private function doGraph():void
+        public function doGraph():void
         {
-//            var yieldIDs:Array=["m06", "y01", "y01_5", "y02", "y03", "y04", "y05"];
-//            for each (var yieldID:String in yieldIDs)
-//            {
-//                var yield:Object={id: yieldID, data: Number(view.get(yieldID))};
-//            }
-
             var yieldArray:Array=new Array();
             yieldArray.push({id: "m06",   year: "0.5", rate: view.m06.text  });
             yieldArray.push({id: "y01",   year: "1.0", rate: view.y01.text  });
@@ -70,7 +65,7 @@ package jp.o2.form
         // TODO
             var coef:ArrayCollection = e.result as ArrayCollection;
             
-            var x0:Array = [ 0.5, 1.0, 2.0 ];
+            var x0:Array = [ 0.5, 1.0, 1.5, 2.0, 3.0, 4.0, 5.0 ];
             
             var max:Number = 5.0;
             var ratio:Number = 100.0;
