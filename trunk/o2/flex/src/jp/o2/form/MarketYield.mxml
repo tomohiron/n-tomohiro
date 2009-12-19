@@ -26,7 +26,7 @@
                         <mx:Label text="6M" />
                     </mx:GridItem>
                     <mx:GridItem>
-                        <mx:TextInput id="m06" />
+                        <mx:TextInput id="m06" text="0.1" />
                     </mx:GridItem>
                 </mx:GridRow>
                 <mx:GridRow>
@@ -34,7 +34,7 @@
                         <mx:Label text="12M" />
                     </mx:GridItem>
                     <mx:GridItem>
-                        <mx:TextInput id="m12" />
+                        <mx:TextInput id="m12" text="0.1" />
                     </mx:GridItem>
                 </mx:GridRow>
             </mx:Grid>
@@ -56,7 +56,7 @@
                         <mx:Label text="1Y" />
                     </mx:GridItem>
                     <mx:GridItem>
-                        <mx:TextInput id="y01" />
+                        <mx:TextInput id="y01" text="0.1" />
                     </mx:GridItem>
                 </mx:GridRow>
                 <mx:GridRow>
@@ -64,7 +64,7 @@
                         <mx:Label text="1.5Y" />
                     </mx:GridItem>
                     <mx:GridItem>
-                        <mx:TextInput id="y01_5" />
+                        <mx:TextInput id="y01_5" text="0.1" />
                     </mx:GridItem>
                 </mx:GridRow>
                 <mx:GridRow>
@@ -72,7 +72,7 @@
                         <mx:Label text="2Y" />
                     </mx:GridItem>
                     <mx:GridItem>
-                        <mx:TextInput id="y02" />
+                        <mx:TextInput id="y02" text="0.1" />
                     </mx:GridItem>
                 </mx:GridRow>
                 <mx:GridRow>
@@ -80,7 +80,7 @@
                         <mx:Label text="3Y" />
                     </mx:GridItem>
                     <mx:GridItem>
-                        <mx:TextInput id="y03" />
+                        <mx:TextInput id="y03" text="0.1" />
                     </mx:GridItem>
                 </mx:GridRow>
                 <mx:GridRow>
@@ -88,7 +88,7 @@
                         <mx:Label text="4Y" />
                     </mx:GridItem>
                     <mx:GridItem>
-                        <mx:TextInput id="y04" />
+                        <mx:TextInput id="y04" text="0.1" />
                     </mx:GridItem>
                 </mx:GridRow>
                 <mx:GridRow>
@@ -96,7 +96,7 @@
                         <mx:Label text="5Y" />
                     </mx:GridItem>
                     <mx:GridItem>
-                        <mx:TextInput id="y05" />
+                        <mx:TextInput id="y05" text="0.1" />
                     </mx:GridItem>
                 </mx:GridRow>
             </mx:Grid>
@@ -116,7 +116,7 @@
         </mx:horizontalAxis>
 
         <mx:series>
-            <mx:LineSeries yField="rate" form="curve" displayName="yield" lineStroke="{s1}" />
+            <mx:LineSeries yField="rate" form="segment" displayName="yield" lineStroke="{s1}" />
         </mx:series>
     </mx:LineChart>
 
