@@ -1,6 +1,6 @@
 package test.jp.o2;
 
-import jp.o2.CalcNSplineCoef;
+import jp.o2.logic.CalcNSplineCoef;
 import junit.framework.Assert;
 
 import org.junit.Test;

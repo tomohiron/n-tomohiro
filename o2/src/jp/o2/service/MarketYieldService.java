@@ -1,17 +1,17 @@
 package jp.o2.service;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.logging.Logger;
 
-import jp.o2.CalcNSplineCoef;
+import jp.o2.logic.CalcNSplineCoef;
+import jp.o2.logic.CalcNSplineValues;
 
 public class MarketYieldService {
 
     private static final Logger logger = Logger.getLogger(MarketYieldService.class.getName());
 
-    public List<Double> getNSplineCoef(List<Map<String, String>> yieldArray) {
+    public List<Map<String, Object>> getNSplineValues(List<Map<String, String>> yieldArray) {
         logger.info(yieldArray.toString());
 
         int size = yieldArray.size();
@@ -24,10 +24,7 @@ public class MarketYieldService {
         }
 
         double[] coef = CalcNSplineCoef.execute(x0, y0);
-        List<Double> coefList = new ArrayList<Double>();
-        for (int i = 0; i < coef.length; i++) {
-            coefList.add(Double.valueOf(coef[i]));
-        }
-        return coefList;
+        List<Map<String, Object>> values = CalcNSplineValues.execute(coef, x0);
+        return values;
     }
 }
