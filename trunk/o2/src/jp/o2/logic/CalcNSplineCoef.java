@@ -1,4 +1,4 @@
-package jp.o2;
+package jp.o2.logic;
 
 import org.apache.commons.math.linear.MatrixUtils;
 import org.apache.commons.math.linear.RealMatrix;
