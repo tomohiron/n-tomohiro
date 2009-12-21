@@ -1,11 +1,9 @@
-package jp.o2.form
-{
+package jp.o2.form {
     import mx.collections.ArrayCollection;
     import mx.collections.XMLListCollection;
 
     [Bindable]
-    public class O2MainModel
-    {
+    public class O2MainModel {
         public var menuBarCollection:XMLListCollection;
 
         private var menubarXML:XMLList =
@@ -22,8 +20,7 @@ package jp.o2.form
             </>
         ;
 
-        public function O2MainModel()
-        {
+        public function O2MainModel() {
             menuBarCollection = new XMLListCollection(menubarXML);
         }
     }

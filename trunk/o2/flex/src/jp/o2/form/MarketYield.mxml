@@ -30,14 +30,14 @@
                     </mx:GridItem>
                 </mx:GridRow>
                 <!--
-                <mx:GridRow>
-                    <mx:GridItem>
-                        <mx:Label text="12M" />
-                    </mx:GridItem>
-                    <mx:GridItem>
-                        <mx:TextInput id="m12" text="0.0" enter="controller.doGraph()" />
-                    </mx:GridItem>
-                </mx:GridRow>
+                     <mx:GridRow>
+                     <mx:GridItem>
+                     <mx:Label text="12M" />
+                     </mx:GridItem>
+                     <mx:GridItem>
+                     <mx:TextInput id="m12" text="0.0" enter="controller.doGraph()" />
+                     </mx:GridItem>
+                     </mx:GridRow>
                 -->
             </mx:Grid>
         </mx:VBox>

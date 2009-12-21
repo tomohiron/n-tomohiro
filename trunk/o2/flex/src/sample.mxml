@@ -2,11 +2,10 @@
 <mx:Application xmlns:mx="http://www.adobe.com/2006/mxml">
 
     <mx:Script>
-        public function click2():void
-        {
-            var map:Object=new Object();
-            map.text1=text1.text;
-            map.text2=text2.text;
+        public function click2():void {
+            var map:Object = new Object();
+            map.text1 = text1.text;
+            map.text2 = text2.text;
             service.getSwapMessage(map);
         }
     </mx:Script>
