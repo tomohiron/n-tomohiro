@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 
-	<bean id="sessionData" class="jp.o2.service.SessionDataImplFlex" />
+    <bean id="sessionData" class="jp.o2.service.SessionDataImplFlex" />
 
-	<bean id="o2Service" class="jp.o2.service.O2Service">
-		<property name="sessionData" ref="sessionData" />
-	</bean>
+    <bean id="o2Service" class="jp.o2.service.O2Service">
+        <property name="sessionData" ref="sessionData" />
+    </bean>
 
-	<bean id="marketYieldService" class="jp.o2.service.MarketYieldService" />
+    <bean id="marketYieldService" class="jp.o2.service.MarketYieldService" />
 
 </beans>
