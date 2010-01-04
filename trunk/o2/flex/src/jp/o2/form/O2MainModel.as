@@ -1,5 +1,4 @@
 package jp.o2.form {
-    import mx.collections.ArrayCollection;
     import mx.collections.XMLListCollection;
 
     [Bindable]
@@ -17,8 +16,7 @@ package jp.o2.form {
                 <menuitem label="Deal Processes" data="top">
                     <menuitem label="Rate Reset" data="0"/>
                 </menuitem>
-            </>
-        ;
+            </>;
 
         public function O2MainModel() {
             menuBarCollection = new XMLListCollection(menubarXML);
