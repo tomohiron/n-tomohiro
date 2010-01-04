@@ -22,9 +22,7 @@
                services="war/WEB-INF/flex/services-config.xml"
                locale="${flex.locale}"
                context-root="/"
-               incremental="true"
-               debug="true"
-               benchmark="true">
+               debug="true">
             <compiler.library-path dir="." append="true">
                 <include name="${flex.root}/libs" />
                 <include name="${flex.root}/locale/${flex.locale}" />
