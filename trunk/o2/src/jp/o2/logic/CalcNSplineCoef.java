@@ -44,6 +44,7 @@ public class CalcNSplineCoef {
         y[length + 1] = 0.0;
 
         RealMatrix ma = MatrixUtils.createRealMatrix(a);
+        // TODO inverse()メソッド除去
         RealMatrix mai = ma.inverse();
 
         RealMatrix my = MatrixUtils.createColumnRealMatrix(y);
