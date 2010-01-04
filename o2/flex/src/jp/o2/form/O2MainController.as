@@ -1,16 +1,11 @@
 package jp.o2.form {
     import flash.events.Event;
     import flash.events.MouseEvent;
-
-    import mx.collections.ArrayCollection;
-    import mx.collections.ItemResponder;
+    
     import mx.controls.Alert;
     import mx.core.IMXMLObject;
     import mx.events.FlexEvent;
     import mx.events.MenuEvent;
-    import mx.rpc.AsyncToken;
-    import mx.rpc.events.FaultEvent;
-    import mx.rpc.events.ResultEvent;
 
     public class O2MainController implements IMXMLObject {
         private var view:O2Main;
