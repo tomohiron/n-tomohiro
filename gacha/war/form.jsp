@@ -15,6 +15,7 @@ response.setHeader("pragma", "no-cache");
 response.setHeader("Cache-Control", "no-cache");
 
 String message = AdminService.getMessage();
+String link = AdminService.getLink();
 
 ResourceBundle bundle = ResourceBundle.getBundle("gacha");
 String maxString = bundle.getString("group.max");
@@ -40,12 +41,14 @@ int date = cal.get(Calendar.DATE);
 <font size="-1">
 
 <div>TK日報フォーマット</div>
-<div>(管理者:村田尚彌)</div>
 
 <hr />
 
 <div>管理者からひとこと</div>
 <div>「<b><%= message %></b>」</div>
+<% if( link != null && !"".equals(link) ) { %>
+<div><a href="<%= link %>">link</a></div>
+<% } %>
 
 <hr />
 

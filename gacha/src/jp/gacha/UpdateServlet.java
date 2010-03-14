@@ -1,7 +1,6 @@
 package jp.gacha;
 
 import java.io.IOException;
-import java.util.logging.Logger;
 
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -10,12 +9,16 @@ import javax.servlet.http.HttpServletResponse;
 @SuppressWarnings("serial")
 public class UpdateServlet extends HttpServlet {
 
-    private static final Logger LOGGER = Logger.getLogger(UpdateServlet.class.getName());
+    // private static final Logger LOGGER =
+    // Logger.getLogger(UpdateServlet.class.getName());
 
     public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 
-        String value = req.getParameter("message");
-        AdminService.updateMessage(value);
+        String message = req.getParameter("message");
+        AdminService.updateMessage(message);
+
+        String link = req.getParameter("link");
+        AdminService.updateLink(link);
 
         resp.setContentType("text/html");
         resp.setCharacterEncoding("UTF-8");

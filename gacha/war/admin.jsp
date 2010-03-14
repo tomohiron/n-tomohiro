@@ -13,6 +13,8 @@ response.setHeader("pragma", "no-cache");
 response.setHeader("Cache-Control", "no-cache");
 
 String message = AdminService.getMessage();
+String link = AdminService.getLink();
+
 %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -35,7 +37,10 @@ String message = AdminService.getMessage();
 <form method="post" action="update">
 
 <div>管理者からひとこと</div>
-<input type="text" name="message" value="<%= message %>" size="16" />
+<textarea name="message" rows="4" cols="16" ><%= message %></textarea>
+
+<div>link</div>
+<input type="text" name="link" value="<%= link %>" size="16" />
 
 <hr />
 
