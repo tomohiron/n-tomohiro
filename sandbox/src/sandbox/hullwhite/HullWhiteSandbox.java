@@ -65,10 +65,10 @@ public class HullWhiteSandbox {
 
         // Curve Data
 
-        double[] df = new double[] { 1.0, 0.993841213, 0.987331092, 0.980146715, 0.972278502, 0.963812328, 0.954454998,
-                0.945343173, 0.934944339, 0.924324335, 0.913255041, 0.901857442, 0.890286145, 0.878683607, 0.867132766,
-                0.855679939, 0.844361572, 0.833072038, 0.822042351, 0.811233277, 0.800238368, 0.789244759, 0.778386074,
-                0.767575191, 0.756729390, 0.746004352, 0.735665735, };
+        double[] curve = new double[] { 1.0, 0.993841213, 0.987331092, 0.980146715, 0.972278502, 0.963812328,
+                0.954454998, 0.945343173, 0.934944339, 0.924324335, 0.913255041, 0.901857442, 0.890286145, 0.878683607,
+                0.867132766, 0.855679939, 0.844361572, 0.833072038, 0.822042351, 0.811233277, 0.800238368, 0.789244759,
+                0.778386074, 0.767575191, 0.756729390, 0.746004352, 0.735665735, };
 
         // ArrowDeb, Alpha
 
@@ -101,7 +101,7 @@ public class HullWhiteSandbox {
             for (int j = m; -1 * m <= j; --j) {
                 sum += Q[m].get(j) * exp(-1.0 * j * delta_r * delta_t);
             }
-            alpha[m] = (log(sum) - log(df[m + 1])) / delta_t;
+            alpha[m] = (log(sum) - log(curve[m + 1])) / delta_t;
         }
 
         out.print("alpha = {");
@@ -134,18 +134,23 @@ public class HullWhiteSandbox {
 
         // Short Rate
 
-        Map<Integer, Double>[] rate = newMapArray();
+        Map<Integer, Double>[] shortRate = newMapArray();
         for (int m = 0; m < STEP_SIZE; ++m) {
             for (int j = m; -1 * m <= j; --j) {
                 if (j < j_min || j_max < j) {
                     continue;
                 }
-                rate[m].put(j, alpha[m] + j * delta_r);
+                shortRate[m].put(j, alpha[m] + j * delta_r);
             }
         }
 
         out.println("rate = ");
-        out.println(toString(rate));
+        out.println(toString(shortRate));
+
+        // RefRate, DF
+
+        Map<Integer, Double>[] refRate = newMapArray();
+        Map<Integer, Double>[] df = newMapArray();
 
     }
 
