@@ -12,8 +12,10 @@ public class Exercise_4_1 {
     private static double dx;
 
     public static void main(String[] args) {
-        double c = calcBSEuropeanCall(100, 80, 0.001, 3, 0.2, 1000);
-        System.out.println("c = " + c);
+        for (int i = 1; i < 500; ++i) {
+            double c = calcBSEuropeanCall(100, 80, 0.001, 3, 0.2, i);
+            System.out.println(i + "\t" + c);
+        }
     }
 
     private static double calcBSEuropeanCall(double S, double K, double r, double T, double sigma, int step) {
