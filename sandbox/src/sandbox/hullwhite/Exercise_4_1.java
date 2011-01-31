@@ -1,10 +1,6 @@
 package sandbox.hullwhite;
 
-import static java.lang.Math.log;
-import static java.lang.Math.exp;
-import static java.lang.Math.max;
-import static java.lang.Math.pow;
-import static java.lang.Math.sqrt;
+import static java.lang.Math.*;
 
 public class Exercise_4_1 {
 
