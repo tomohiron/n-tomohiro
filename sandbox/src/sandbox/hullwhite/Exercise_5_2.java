@@ -10,24 +10,31 @@ public class Exercise_5_2 {
 
     public static void main(String[] args) {
         long start = System.nanoTime();
-        int run = 100000000;
-        double c = calcBSEuropeanCall(100, 80, 0.001, 3, 0.2, 1, run);
+        int run = 10000000;
+        double c = calcBSEuropeanCall(100, 80, 0.001, 3, 0.2, 2, run);
         System.out.println("time[ms]=" + (System.nanoTime() - start) / 1000000d);
         System.out.println("run=" + run);
         System.out.println("call=" + c);
     }
 
     private static double calcBSEuropeanCall(double S, double K, double r, double T, double sigma, int method, int run) {
-        // double[] x = new double[run + 1];
         double[] y = new double[run + 1];
-        // double[] z = new double[run + 1];
         if (method == 1) {
             for (int i = 1; i <= run; ++i) {
                 // y[i] = normrand();
                 y[i] = rand.nextGaussian();
             }
+        } else if (method == 2) {
+            double[] x = new double[run + 1];
+            int N = (int) (run / 2);
+            for (int i = 1; i <= N; ++i) {
+                x[i] = rand.nextGaussian();
+            }
+            for (int i = 1; i <= N; ++i) {
+                y[i] = x[i];
+                y[N + i] = -x[i];
+            }
         }
-        // TODO else
 
         double sum = 0;
         for (int i = 1; i <= run; ++i) {
