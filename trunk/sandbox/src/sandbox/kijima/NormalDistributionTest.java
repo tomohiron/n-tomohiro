@@ -1,7 +1,7 @@
-package sandbox.hullwhite;
+package sandbox.kijima;
 
 import static java.lang.Math.*;
-import static sandbox.hullwhite.Util.*;
+import static sandbox.kijima.Util.*;
 
 public class NormalDistributionTest {
 

@@ -1,4 +1,4 @@
-package sandbox.hullwhite;
+package sandbox.kijima;
 
 public class Lattice {
 
