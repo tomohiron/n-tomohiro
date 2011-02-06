@@ -1,4 +1,4 @@
-package sandbox.hullwhite;
+package sandbox.kijima;
 
 import static java.lang.Math.*;
 
