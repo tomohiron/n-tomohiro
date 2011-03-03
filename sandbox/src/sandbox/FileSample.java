@@ -3,8 +3,10 @@ package sandbox;
 import static java.lang.System.*;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
+import java.io.FileWriter;
 
 public class FileSample {
 
@@ -17,6 +19,7 @@ public class FileSample {
                 continue;
             }
             out.println(name);
+            BufferedWriter bw = new BufferedWriter(new FileWriter(name.replaceAll(".txt", ".out")));
             BufferedReader br = new BufferedReader(new FileReader(file));
             while (true) {
                 String line = br.readLine();
@@ -25,31 +28,34 @@ public class FileSample {
                 }
                 String[] words = line.split(",");
                 if (words[0].equals("Kappa")) {
-                    out.println("Kappa=" + words[1]);
+                    bw.write("Kappa=" + words[1]);
                 } else if (words[0].equals("Eta")) {
-                    out.println("Eta=" + words[1]);
+                    bw.write("Eta=" + words[1]);
                 } else if (words[0].equals("V_0")) {
-                    out.println("V_0=" + words[1]);
+                    bw.write("V_0=" + words[1]);
                 } else if (words[0].equals("Corr_Rho")) {
-                    out.println("Corr_Rho=" + words[1]);
+                    bw.write("Corr_Rho=" + words[1]);
                 } else if (words[0].equals("Corr_Zeta")) {
-                    out.println("Corr_Zeta=" + words[1]);
+                    bw.write("Corr_Zeta=" + words[1]);
                 } else if (words[0].equals("Corr_Gamma")) {
-                    out.println("Corr_Gamma=" + words[1]);
+                    bw.write("Corr_Gamma=" + words[1]);
                 } else if (words[0].equals("NumOfModelUnderlyings")) {
-                    out.println("NumOfModelUnderlyings=" + words[1]);
+                    bw.write("NumOfModelUnderlyings=" + words[1]);
                 } else if (words[0].equals("CapletOrder")) {
-                    out.println("CapletOrder=" + words[1]);
+                    bw.write("CapletOrder=" + words[1]);
                 } else if (words[0].equals("SwaptionOrder")) {
-                    out.println("SwaptionOrder=" + words[1]);
+                    bw.write("SwaptionOrder=" + words[1]);
                 } else if (words[0].equals("CalibMarket")) {
-                    out.println("CalibMarket=" + words[1]);
+                    bw.write("CalibMarket=" + words[1]);
                 } else if (words[0].equals("CapletSVI")) {
-                    out.println("CapletSVI=" + words[1]);
+                    bw.write("CapletSVI=" + words[1]);
                 } else if (words[0].equals("SwaptionSVI")) {
-                    out.println("SwaptionSVI=" + words[1]);
+                    bw.write("SwaptionSVI=" + words[1]);
                 }
+                bw.newLine();
             }
+            bw.flush();
+            bw.close();
             br.close();
         }
     }
