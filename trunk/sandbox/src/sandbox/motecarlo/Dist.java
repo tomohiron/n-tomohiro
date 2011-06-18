@@ -29,12 +29,12 @@ public class Dist {
     }
 
     public void set(double value) {
+        ++total;
         if (value < min || max < value) {
             return;
         }
         int index = (int) ((value - min) / delta);
         ++array[index];
-        ++total;
     }
 
     public void toCSV(String filepath) throws IOException {
